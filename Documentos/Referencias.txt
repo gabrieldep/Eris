@@ -1,0 +1,4 @@
+##REFERENCIAS##
+
+- Placa de suporte para os sensores IR:
+https://easyeda.com/rsilluzio/Sensores_robo-40d661c502454bd1868b968f8d9e95c8#
