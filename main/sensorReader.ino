@@ -1,3 +1,5 @@
+#include "main.ino"
+
 //sensores
 boolean s1;
 boolean s2;
@@ -12,17 +14,6 @@ boolean s9;
 //Motores
 int motorR = 9;
 int motorL = 11;
-
-//Constantes PID
-float Kp = 50;
-float Ki = 0.3;
-float Kd = 25;
-
-float P = 0, I = 0, D = 0, valorPID = 0;
-int erro = 0, erro_antes = 0;
-
-int speedR = 100, newSpeedR = speedR;
-int speedL = 100, newSpeedL = speedL;
 
 void read()
 {
@@ -58,29 +49,32 @@ void error()
   else if (!s1 && !s2 && !s3 && !s4 && !s5 && !s6 && !s7 && !s8 &&  s9) {erro =  8;}  // Sensor 9     na linha branca
 }
 
-
 void sprint ()
 {
   P = erro;
   I = I + erro;
   D = erro - erro_antes;
-  valorPID = (Kp * P) + (Kd * D) + (Ki * I);
+  PID = (Kp * P) + (Kd * D) + (Ki * I);
 
   if (valorPID > 0) { //virar direita
-    newSpeedL = speedL + valorPID;
-    newSpeedR = speedR - valorPID;
+    newSpeedL = speedL + PID;
+    newSpeedR = speedR - PID;
   }
 
-  if (valorPID < 0) { //virar esquerda
-    newSpeedL = speedL + valorPID;
-    newSpeedR = speedR - valorPID;
+  else if (valorPID < 0) { //virar esquerda
+    newSpeedL = speedL + PID;
+    newSpeedR = speedR - PID;
   }
 
-  if (valorPID == 0)
+  else if (valorPID == 0)
   {
     newSpeedL = speedL;
     newSpeedR = speedR;
   }
+
+  speedR = newSpeedR;
+  speedL = newSpeedL;
+
   analogWrite(motorR, newSpeedR);
   analogWrite(motorL, newSpeedL);
 }
