@@ -30,7 +30,8 @@ void setup() {
 }
 
 void loop() {
-    read();
+    readS();
     error();
+    desafios();
     sprint();
 }
