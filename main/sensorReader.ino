@@ -1,18 +1,3 @@
-//sensores
-boolean s1;
-boolean s2;
-boolean s3;
-boolean s4;
-boolean s5;
-boolean s6;
-boolean s7;
-boolean s8;
-boolean s9;
-
-//Motores
-int motorR = 9;
-int motorL = 11;
-
 void readS()
 {
   s1 = analogRead(A0) < f;
@@ -98,11 +83,11 @@ void sprint ()
 
 void desafios(){
   //Identificar faixa de pedestres
-  if((!s5 || !s4|| !s6) && s9 && s1 && s8 && s7 && (faixa == 0)){
+  if((!s5 || !s4|| !s6) && s9 && s1 && s8 && s7 && (faixa == false)){
     faixa = true;;
     while(faixa == true)
     {
-    faixaPedestre();
+      faixaPedestre();
     }
   }
 }

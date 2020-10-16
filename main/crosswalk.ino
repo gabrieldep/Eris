@@ -1,20 +1,25 @@
 void faixaPedestre()
 {
-  leitura();
+  readS();
   errorI();
   sprint();  
   if ((s5 || s4|| s6) && !s9 && !s1 && !s8 && !s7)
   {
-    leitura();
+    readS();
     error();
     sprint();
   }
   else if (!s3 && !s4 && !s5 && !s6 && !s7){
     parar();
     delay(5000);
-    analogWrite(velo_D, 150);
-    analogWrite(velo_E, 150);
+    analogWrite(motorR, 150);
+    analogWrite(motorL, 150);
     delay(1000);
     faixa = false;  
   }
+}
+
+void parar(){
+  analogWrite(motorR, 0);
+  analogWrite(motorL, 0);
 }
