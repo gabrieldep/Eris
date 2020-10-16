@@ -1,5 +1,3 @@
-#include "main.ino"
-
 //sensores
 boolean s1;
 boolean s2;
@@ -78,34 +76,31 @@ void sprint ()
   D = erro - erro_antes;
   PID = (Kp * P) + (Kd * D) + (Ki * I);
 
-  if (valorPID > 0) { //virar direita
-    newSpeedL = speedL + PID;
-    newSpeedR = speedR - PID;
+  if (PID > 0) { //virar direita
+    speedL = speedL + PID;
+    speedR = speedR - PID;
   }
 
-  else if (valorPID < 0) { //virar esquerda
-    newSpeedL = speedL + PID;
-    newSpeedR = speedR - PID;
+  else if (PID < 0) { //virar esquerda
+    speedL = speedL + PID;
+    speedR = speedR - PID;
   }
 
-  else if (valorPID == 0)
+  else if (PID == 0)
   {
-    newSpeedL = speedL;
-    newSpeedR = speedR;
+    speedL = speedL;
+    speedR = speedR;
   }
 
-  speedR = newSpeedR;
-  speedL = newSpeedL;
-
-  analogWrite(motorR, newSpeedR);
-  analogWrite(motorL, newSpeedL);
+  analogWrite(motorR, speedR);
+  analogWrite(motorL, speedL);
 }
 
 void desafios(){
   //Identificar faixa de pedestres
   if((!s5 || !s4|| !s6) && s9 && s1 && s8 && s7 && (faixa == 0)){
-    faixa = 1;
-    while(faixa == 1)
+    faixa = true;;
+    while(faixa == true)
     {
     faixaPedestre();
     }

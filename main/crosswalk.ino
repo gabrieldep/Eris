@@ -9,12 +9,12 @@ void faixaPedestre()
     error();
     sprint();
   }
-  if (!s3 && !s4 && !s5 && !s6 && !s7){
+  else if (!s3 && !s4 && !s5 && !s6 && !s7){
     parar();
     delay(5000);
     analogWrite(velo_D, 150);
     analogWrite(velo_E, 150);
     delay(1000);
-    faixa = 0;  
+    faixa = false;  
   }
 }

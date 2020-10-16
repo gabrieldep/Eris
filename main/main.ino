@@ -11,9 +11,10 @@ float Kp = 20, Ki = 0.3, Kd = 10;
 //Variaveis para calcular o PID
 float P = 0, I = 0, D = 0, PID = 0;
 int erro = 0, erro_antes = 0;
+boolean faixa = false;
 
-int speedR = 100, newSpeedR = speedR;
-int speedL = 100, newSpeedL = speedL;
+int speedR = 100;
+int speedL = 100;
 
 void setup() {
     //MOTORES
