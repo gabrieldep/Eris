@@ -1,13 +1,13 @@
 #define f 350     // Valor dos sensores no Branco
 
 //MOTORES
-int IN1 = 2, IN2 = 3, IN3 = 4, IN4 = 5;
+int IN1 = 3, IN2 = 4, IN3 = 5, IN4 = 6;
 
 //sensores
 boolean s1, s2, s3, s4, s5, s6, s7, s8, s9;
 
 //Motores
-int motorR = 9, motorL = 11;
+int motorR = 2, motorL = 7;
 
 //Constantes PID
 float Kp = 20, Ki = 0.3, Kd = 10;
@@ -29,6 +29,8 @@ void setup() {
     pinMode(IN3, OUTPUT);
     pinMode(IN4, OUTPUT);
 
+    Serial.begin(9600);
+
     //MOTORES SEMPRE ANDAM PARA FRENTE
     digitalWrite(IN1, HIGH);
     digitalWrite(IN2, LOW);
@@ -38,7 +40,32 @@ void setup() {
 
 void loop() {
     readS();
+    /*
+    Serial.print(s1);
+    Serial.print(" ");
+    Serial.print(s2);
+    Serial.print(" ");
+    Serial.print(s3);
+    Serial.print(" ");
+    Serial.print(s4);
+    Serial.print(" ");
+    Serial.print(s5);
+    Serial.print(" ");
+    Serial.print(s6);
+    Serial.print(" ");
+    Serial.print(s7);
+    Serial.print(" ");
+    Serial.print(s8);
+    Serial.print(" ");
+    Serial.print(s9);
+    Serial.print("\n");
+    delay(500);
+    */
     error();
     desafios();
     sprint();
+    Serial.print(speedL);
+    Serial.print("    ");
+    Serial.print(speedR);
+    Serial.print("\n");
 }

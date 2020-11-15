@@ -60,6 +60,8 @@ void sprint ()
   I = I + erro;
   D = erro - erro_antes;
   PID = (Kp * P) + (Kd * D) + (Ki * I);
+  speedL = 100;
+  speedR = 100;
 
   if (PID > 0) { //virar direita
     speedL = speedL + PID;
@@ -76,6 +78,20 @@ void sprint ()
     speedL = speedL;
     speedR = speedR;
   }
+
+  if(speedR < 0){
+    speedR = 0;
+  }
+  else if(speedR > 255){
+    speedR = 255;
+  }
+  if(speedL < 0){
+    speedL = 0;
+  }
+  else if(speedL > 255){
+    speedL = 255;
+  }
+  
 
   analogWrite(motorR, speedR);
   analogWrite(motorL, speedL);
