@@ -43,12 +43,12 @@ void loop() {
     /*Serial.print(s1);Serial.print(" ");Serial.print(s2);Serial.print(" ");Serial.print(s3);Serial.print(" ");
       Serial.print(s4);Serial.print(" ");Serial.print(s5);Serial.print(" ");Serial.print(s6);Serial.print(" ");
       Serial.print(s7);Serial.print(" ");Serial.print(s8);Serial.print(" ");Serial.print(s9);Serial.print("\n");
+      
+      Serial.print(speedL);Serial.print("    ");
+      Serial.print(speedR);Serial.print("\n");
       delay(500);*/
     error();
     desafios();
     sprint();
-    Serial.print(speedL);
-    Serial.print("    ");
-    Serial.print(speedR);
-    Serial.print("\n");
+
 }
