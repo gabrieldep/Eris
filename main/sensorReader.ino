@@ -64,26 +64,19 @@ void sprint ()
   I = I + erro;
   D = erro - erro_antes;
   PID = (Kp * P) + (Kd * D) + (Ki * I);
-  speedL = 100;
-  speedR = 100;
   
   speedL = speedL + PID;
   speedR = speedR - PID;
 
-  if(speedR < 0){
-    speedR = 0;
-  }
-  else if(speedR > 255){
+  if(speedR < 0)
+    speedR = 0;  
+  else if(speedR > 255)
     speedR = 255;
-  }
-  if(speedL < 0){
+  if(speedL < 0)
     speedL = 0;
-  }
-  else if(speedL > 255){
+  else if(speedL > 255)
     speedL = 255;
-  }
-  
-
+    
   analogWrite(motorR, speedR);
   analogWrite(motorL, speedL);
 }
@@ -91,10 +84,8 @@ void sprint ()
 void desafios(){
   //Identificar faixa de pedestres
   if((!s5 || !s4|| !s6) && s9 && s1 && s8 && s7 && (faixa == false)){
-    faixa = true;;
-    while(faixa == true)
-    {
+    faixa = true;
+    while(faixa == true)    
       faixaPedestre();
-    }
   }
 }
