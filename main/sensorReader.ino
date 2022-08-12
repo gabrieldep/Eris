@@ -1,6 +1,5 @@
 void readS(int* d)
 {
-  //d = media dos valores exceto os dois maiores;
   s1 = analogRead(A0) < f;
   s2 = analogRead(A1) < f;
   s3 = analogRead(A2) < f;
@@ -82,7 +81,6 @@ void sprint ()
 }
 
 void desafios(){
-  //Identificar faixa de pedestres
   if((!s5 || !s4|| !s6) && s9 && s1 && s8 && s7 && (faixa == false)){
     faixa = true;
     while(faixa == true)    
