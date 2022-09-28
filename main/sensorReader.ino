@@ -1,6 +1,6 @@
-void readS(int* d)
+void readS()
 {
-  //d = media dos valores exceto os dois maiores;
+  int f = 200;
   s1 = analogRead(A0) < f;
   s2 = analogRead(A1) < f;
   s3 = analogRead(A2) < f;
@@ -65,8 +65,8 @@ void sprint ()
   D = erro - erro_antes;
   PID = (Kp * P) + (Kd * D) + (Ki * I);
   
-  speedL = speedL + PID;
-  speedR = speedR - PID;
+  speedL += PID;
+  speedR -= PID;
 
   if(speedR < 0)
     speedR = 0;  
