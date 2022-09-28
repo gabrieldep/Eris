@@ -82,7 +82,6 @@ void sprint ()
 }
 
 void desafios(){
-  //Identificar faixa de pedestres
   if((!s5 || !s4|| !s6) && s9 && s1 && s8 && s7 && (faixa == false)){
     faixa = true;
     while(faixa == true)    
